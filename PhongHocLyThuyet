@@ -1,0 +1,29 @@
+package b5;
+
+public class PhongHocLyThuyet extends PhongHoc{
+    private boolean mayChieu;
+
+    public PhongHocLyThuyet(String maPhonga, double dienTich, int soBongDen, int dayNha) {
+        super(maPhonga, dienTich, soBongDen, dayNha);
+    }
+
+    public PhongHocLyThuyet(boolean mayChieu, String maPhonga, double dienTich, int soBongDen, int dayNha) {
+        super(maPhonga, dienTich, soBongDen, dayNha);
+        this.mayChieu = mayChieu;
+    }
+
+    public boolean isMayChieu() {
+        return mayChieu;
+    }
+
+    public void setMayChieu(boolean mayChieu) {
+        this.mayChieu = mayChieu;
+    }
+
+    @Override
+    public String toString() {
+        return "PhongHocLyThuyet{" + "mayChieu=" + mayChieu + '}';
+    }
+
+
+}
