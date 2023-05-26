@@ -1,0 +1,55 @@
+package b5;
+
+public class PhongHoc {
+    private String maPhonga;
+    private double dienTich;
+    private int soBongDen,dayNha;
+
+    public PhongHoc(String maPhonga){}
+    public PhongHoc(String maPhonga, double dienTich, int soBongDen, int dayNha) {
+        this.maPhonga = maPhonga;
+        this.dienTich = dienTich;
+        this.soBongDen = soBongDen;
+        this.dayNha = dayNha;
+    }
+
+    public String getMaPhonga() {
+        return maPhonga;
+    }
+
+    public void setMaPhonga(String maPhonga) {
+        this.maPhonga = maPhonga;
+    }
+
+    public double getDienTich() {
+        return dienTich;
+    }
+
+    public void setDienTich(double dienTich) {
+        this.dienTich = dienTich;
+    }
+
+    public int getSoBongDen() {
+        return soBongDen;
+    }
+
+    public void setSoBongDen(int soBongDen) {
+        this.soBongDen = soBongDen;
+    }
+
+    public int getDayNha() {
+        return dayNha;
+    }
+
+    public void setDayNha(int dayNha) {
+        this.dayNha = dayNha;
+    }
+
+    @Override
+    public String toString() {
+        return "PhongHoc{" + "maPhonga=" + maPhonga + ", dienTich=" + dienTich + ", soBongDen=" + soBongDen + ", dayNha=" + dayNha + '}';
+    }
+
+  
+    
+}
