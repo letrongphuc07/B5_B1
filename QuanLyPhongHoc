@@ -1,0 +1,117 @@
+package b5;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+public class QuanLyPhongHoc {
+    ArrayList<PhongHoc> phn = new ArrayList<>();
+    
+     public void them_phong_hoc(PhongHoc ph) {
+        phn.add(ph);
+    }
+      public void tim_phong_theo_ma(String maPhonga) {
+        for (PhongHoc phongHoc : phn) {
+            if (phongHoc.getMaPhonga().indexOf(maPhonga) >= 0) {
+                System.out.println(phongHoc);
+            }
+        }
+    }
+      public void in_thong_tin() {
+        for (PhongHoc phongHoc : phn) {
+            System.out.println(phongHoc.toString());
+        }
+    }
+      public void sap_day_nha_tang() {
+        Collections.sort(phn, new Comparator<PhongHoc>() {
+            @Override
+            public int compare(PhongHoc ph1, PhongHoc ph2) {
+                if (ph1.getDayNha() < ph2.getDayNha()) {
+                    return -1;
+                } else if (ph1.getDayNha()> ph1.getDayNha()) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }
+        });
+    }
+       public void sap_dien_tich_giam() {
+        Collections.sort(phn, new Comparator<PhongHoc>() {
+            @Override
+            public int compare(PhongHoc ph1, PhongHoc ph2) {
+                if (ph1.getDienTich()> ph2.getDienTich()) {
+                    return -1;
+                } else if (ph1.getDienTich() < ph2.getDienTich()) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }
+        });
+    }
+       public void sap_so_bong_den_tang() {
+        Collections.sort(phn, new Comparator<PhongHoc>() {
+            @Override
+            public int compare(PhongHoc ph1, PhongHoc ph2) {
+                if (ph1.getSoBongDen()< ph2.getSoBongDen()) {
+                    return -1;
+                } else if (ph1.getSoBongDen()> ph2.getSoBongDen()) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }
+        });
+    }
+        public boolean xoa_mot_phong_hoc_theo_maPhong(PhongHoc ph) {
+        return phn.remove(ph);
+    }
+        public int kiem_tra_so_luong() {
+        return phn.size();
+    }
+       /* public boolean danh_sach_dat_chuan(){
+            boolean datChuan = true;
+            double dtBongDen=10;
+            int soLuongBongDen = (int)(getDienTich()/dtBongDen);
+            if(getSoBongDen()<soLuongBongDen){
+                datChuan=false;
+            }
+            if(this instanceof PhongHocLyThuyet){
+                PhongHocLyThuyet phLyThuyet = (PhongHocLyThuyet) this;
+                if(! phLyThuyet.isMayChieu()){
+                    datChuan=false;
+                }
+            }
+            if(this instanceof PhongMayTinh){
+                PhongMayTinh pMayTinh = (PhongMayTinh) this;
+                double dienTichMay=1.5;
+                int soLuongMayTinh = (int) (getDienTich()/dienTichMay);
+                if(pMayTinh.getMayTinh()<soLuongMayTinh){
+                    datChuan=false;
+                }
+            }
+            if(this instanceof PhongThiNghiem){
+                PhongThiNghiem pThiNghiem = (PhongThiNghiem) this;
+                if(! pThiNghiem.isBonRua()){
+                    datChuan=false;
+                }
+            }
+            return datChuan;
+        }*/
+        public void cap_nhap_may_tinh_khi_biet_ma(String maPhonga, int soLuongMayMoi){
+            for(PhongHoc phongHoc: phn){
+                if(phongHoc instanceof PhongMayTinh && phongHoc.getMaPhonga().equals(maPhonga)){
+                    ((PhongMayTinh)phongHoc).setMayTinh(soLuongMayMoi);
+                    break;
+                }
+            }
+        }
+        public int danh_sach_phong_60_may(){
+            for(PhongHoc phongHoc: phn){
+                if(phongHoc.getDienTich()>60){
+                    System.out.println(phongHoc);
+                }
+            }
+        }
+}
