@@ -1,0 +1,29 @@
+
+package b5;
+
+public class PhongMayTinh extends PhongHoc{
+    private int mayTinh;
+
+    public PhongMayTinh(String maPhonga, double dienTich, int soBongDen, int dayNha) {
+        super(maPhonga, dienTich, soBongDen, dayNha);
+    }
+
+    public PhongMayTinh(int mayTinh, String maPhonga, double dienTich, int soBongDen, int dayNha) {
+        super(maPhonga, dienTich, soBongDen, dayNha);
+        this.mayTinh = mayTinh;
+    }
+
+    public int getMayTinh() {
+        return mayTinh;
+    }
+
+    public void setMayTinh(int mayTinh) {
+        this.mayTinh = mayTinh;
+    }
+
+    @Override
+    public String toString() {
+        return "PhongMayTinh{" + "mayTinh=" + mayTinh + '}';
+    }
+  
+}
