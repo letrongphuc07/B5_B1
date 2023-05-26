@@ -1,0 +1,183 @@
+
+package b5;
+
+import java.util.Scanner;
+
+public class RunMain {
+    public static void main(String[] args) {
+        QuanLyPhongHoc qlph = new QuanLyPhongHoc();
+        Scanner sc = new Scanner(System.in);
+        int menu;
+        do {
+            System.out.println("Menu lua chon chuc nang---------------------------");
+            System.out.println("1.  Them mot phong hoc");
+            System.out.println("2.  Tim kiem phong hoc theo ma");
+            System.out.println("3.  In toan bo dán sach phong hoc");
+            System.out.println("4.  In danh sach Phong hoc dat chuan");
+            System.out.println("5.  Sap xep tang dan theo day nha");
+            System.out.println("6.  Sap xep giam dan theo dien tich");
+            System.out.println("7.  Sap xep tang dan theo so bong den");
+            System.out.println("8.  Cap nhat may tinh theo ma");
+            System.out.println("9.  Xoa phong theo ma");
+            System.out.println("10.  In so luong phong hoc");
+            System.out.println("11.  In phong may co 60 may");
+            System.out.println("0. Thoat");
+            System.out.print("Nhap: ");
+            menu = sc.nextInt();
+
+            switch (menu) {
+                case 1:
+                    int menu_1;
+                    do {
+
+                        System.out.println("Menu----------");
+                        System.out.println("1. Phong Hoc Ly Thuyet");
+                        System.out.println("2. Phong Hoc May Tinh");
+                        System.out.println("3. Phong Thi Nghiem");
+                        System.out.println("0. Quay lai chuong trinh");
+                        System.out.print("Nhap: ");
+                        menu_1 = sc.nextInt();
+
+                        switch (menu_1) {
+                            case 1: {
+                                sc.nextLine();
+                                System.out.print("Nhap Ma Phong: ");
+                                String maPhong = sc.nextLine();
+
+                                System.out.println("Nhap Dien Tich");
+                                double dienTich = sc.nextDouble();
+
+                                System.out.print("Nhap So Bong Den: ");
+                                int soBongDen = sc.nextInt();
+
+                                sc.nextLine();
+                                System.out.print("Nhap Day Nha: ");
+                                int dayNha = sc.nextInt();
+
+                                System.out.print("May Chieu: ");
+                                boolean mayChieu = sc.hasNextBoolean();
+
+                                PhongHoc phn = new PhongHocLyThuyet(mayChieu, maPhong, dienTich, soBongDen, dayNha);
+                                qlph.them_phong_hoc(phn);
+                                System.out.println("Them thanh cong-----------");
+                            }
+                            break;
+                            case 2: {
+                                 sc.nextLine();
+                                System.out.print("Nhap Ma Phong: ");
+                                String maPhong = sc.nextLine();
+
+                                System.out.println("Nhap Dien Tich");
+                                double dienTich = sc.nextDouble();
+
+                                System.out.print("Nhap So Bong Den: ");
+                                int soBongDen = sc.nextInt();
+
+                                sc.nextLine();
+                                System.out.print("Nhap Day Nha: ");
+                                int dayNha = sc.nextInt();
+
+                                sc.nextLine();
+                                System.out.print("Nhap So Luong May Tinh: ");
+                                int mayTinh = sc.nextInt();
+                                
+                                PhongHoc phn = new PhongMayTinh(mayTinh, maPhong, dienTich, soBongDen, dayNha);
+                                qlph.them_phong_hoc(phn);
+                                System.out.println("Them thanh cong-----------");
+                            }
+                            break;
+                            case 3: {
+                                 sc.nextLine();
+                                System.out.print("Nhap Ma Phong: ");
+                                String maPhong = sc.nextLine();
+
+                                System.out.println("Nhap Dien Tich");
+                                double dienTich = sc.nextDouble();
+
+                                System.out.print("Nhap So Bong Den: ");
+                                int soBongDen = sc.nextInt();
+
+                                sc.nextLine();
+                                System.out.print("Nhap Day Nha: ");
+                                int dayNha = sc.nextInt();
+
+                                sc.nextLine();
+                                System.out.print("Nhap Chuyen Nganh: ");
+                                String chuyenNhanh = sc.nextLine();
+                                
+                                System.out.print("Nhap Suc Chua: ");
+                                String sucChua = sc.nextLine();
+                                
+                                System.out.print("Bon Rua: ");
+                                boolean bonRua = sc.hasNextBoolean();
+                                
+                                PhongHoc phn = new PhongThiNghiem(chuyenNhanh, sucChua, bonRua, maPhong, dienTich, soBongDen, dayNha);
+                                qlph.them_phong_hoc(phn);
+                                System.out.println("Them thanh cong-----------");
+                            }
+                            break;
+                            default:
+                                if (menu_1 == 0) {
+                                    System.out.println("Thoat chuong trinh");
+                                } else {
+                                    System.out.println("Vui long nhap lai lua chon");
+                                }
+                        }
+                    } while (menu_1 != 0);
+                    break;
+                case 2:
+                    qlph.tim_phong_theo_ma("maPhonga");
+                    System.out.println("\n");
+                    break;
+                case 3:
+                    qlph.in_thong_tin();
+                    System.out.println("\n");
+                    break;
+                case 4:          
+                    break;
+                case 5:
+                    qlph.sap_day_nha_tang();
+                    System.out.println("\n");
+                    break;
+                case 6:
+                    qlph.sap_dien_tich_giam();
+                    System.out.println("\n");
+                    break;
+                case 7:
+                    qlph.sap_so_bong_den_tang();
+                    System.out.println("\n");
+                    break;
+                case 8:
+                    qlph.cap_nhap_may_tinh_khi_biet_ma(maPhonga, menu_1);
+                    break;
+                case 9:
+                    sc.nextLine();
+                    System.out.print("Nhap vao ma code can xoa: ");
+                    String maPhonga = sc.nextLine();
+                    PhongHoc ph = new PhongHoc(maPhonga);
+                    qlph.xoa_mot_phong_hoc_theo_maPhong(ph);
+                    break;
+                case 10:
+                    if (qlph.kiem_tra_so_luong() == 0) {
+                        System.out.println("Hien khong co may trong kho");
+                    } else {
+                        System.out.println("So may hien tai la: " + qlph.kiem_tra_so_luong());
+                    }
+                    qlph.in_thong_tin();
+                    System.out.println("\n");
+                    break;
+                case 11:
+                     if (qlph.danh_sach_phong_60_may() == 0) {
+                        System.out.println("Hien khong co may trong kho");
+                    } else {
+                        System.out.println("So may hien tai la: " + qlph.danh_sach_phong_60_may());
+                    }
+                    qlph.in_thong_tin();
+                    System.out.println("\n");
+                    break;
+                default:
+            }
+           
+        } while (menu != 0);
+    }
+}
